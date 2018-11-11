@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+message Predicate {
+    string str = 1;
+    int32 nargs = 2 [(ocaml_type) = int_t];
+}
+
+message Candidate {
+    Predicate pred1 = 1;
+    Predicate pred2 = 2;
+    string rel = 3;
+    double score = 4;
+}
+
+message Rank {
+    repeated Candidate list = 1;
+}
+
+message Echo {
+    string msg = 1;
+    Rank rank = 2;
+}
+

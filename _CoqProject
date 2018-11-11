@@ -1,0 +1,17 @@
+-Q theories Abduction
+-I src
+
+src/utils.ml
+src/proc.ml
+src/premise.ml4
+src/protobuf.mli
+src/pbrt.mli
+src/message_pb.mli
+src/message_types.mli
+src/protobuf.ml
+src/pbrt.ml
+src/message_pb.ml
+src/message_types.ml
+src/abduction.mlpack
+
+theories/Abduction.v
