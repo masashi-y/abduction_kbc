@@ -1,0 +1,58 @@
+218	A girl in white is dancing	A girl in white is stepping	ENTAILMENT	synonym
+384	A white and tan dog is running through the tall and green grass	A white and tan dog is strolling through the tall and green grass	CONTRADICTION	near-antonym
+384	A white and tan dog is running through the tall and green grass	A white and tan dog is ambling through a field	CONTRADICTION	near-antonym
+1190	A man and a woman are hiking through a wooded area	A man and a woman are staying	CONTRADICTION	antonym
+1192	A man and a woman are walking together through the woods	A man and a woman are staying together	CONTRADICTION	antonym
+1333	The woman is measuring the other woman	A woman is being scaled by another woman	ENTAILMENT	synonym
+1703	A man is emptying a container made of plastic completely	A man is clearing a container made of plastic completely	ENTAILMENT	synonym
+1703	A man is emptying a container made of plastic completely	A man is filling a container made of plastic	CONTRADICTION	antonym
+2364	Some cameras are being burned by a person with a blow torch	Some cameras are being melted by a person with a blow torch	ENTAILMENT	synonym
+2364	Some cameras are being burned by a person with a blow torch	Some cameras are being heated by a person with a blow torch	ENTAILMENT	synonym
+2557	Someone is strumming the guitar	Someone is picking the guitar.	ENTAILMENT	synonym
+2604	A bull dog is being brushed by the monkey	A bull dog is being cleaned by the monkey.	ENTAILMENT	synonym
+2604	A bull dog is being brushed by the monkey	The monkey is washing a bull dog	ENTAILMENT	synonym
+2604	A bull dog is being brushed by the monkey	The monkey is sweeping a bull dog.	ENTAILMENT	synonym
+2791	A guinea pig, which is small, is gnawing and eating a piece of carrot on the floor	A small guinea pig is gnawing and champing a piece of carrot on the floor	ENTAILMENT	synonym
+2791	A guinea pig, which is small, is gnawing and eating a piece of carrot on the floor	A guinea pig, which is small, is nibbling and eating a piece of carrot on the floor	ENTAILMENT	synonym
+2898	The man is lifting barbells	The man is dropping barbells	CONTRADICTION	antonym
+2898	The man is lifting barbells	The man is lowering barbells	CONTRADICTION	antonym
+2967	A large green ball is hitting a potato	A large green colored ball is missing a potato	CONTRADICTION	antonym
+3213	A kitten is getting bored	A kitten is animated	CONTRADICTION	near-antonym
+3213	A kitten is getting bored	A kitten is energized	CONTRADICTION	near-antonym
+3250	A woman is placing two eggs into a pot of water	A woman is setting two eggs into a pot of water	ENTAILMENT	synonym
+3279	A boy is waving at some young runners from the ocean	A boy is gesturing at some young runners from the ocean	ENTAILMENT	synonym
+3279	A boy is nodding at some young runners from the ocean	A boy is gesturing at some young runners from the ocean	ENTAILMENT	synonym
+3364	A woman is cleaning a shrimp	The woman is contaminating a shrimp	CONTRADICTION	near-antonym
+3364	A woman is cleaning a shrimp	Someone is dirtying a shrimp	CONTRADICTION	near-antonym
+3384	A panda bear is eating some bamboo	Some bamboo is being consumed by a panda bear	ENTAILMENT	synonym
+3384	A panda bear is eating some bamboo	Some bamboo is being devoured by a panda bear	ENTAILMENT	synonym
+3403	A man is unfolding a tortilla	A man is unrolling a tortilla	ENTAILMENT	synonym
+3415	A woman is freeing a fish	A woman is releasing a fish	ENTAILMENT	synonym
+3527	A person is jotting something down with a pencil	A person is scribbling something with a pencil	ENTAILMENT	synonym
+3527	A person is scribbling something with a pencil	A person is writing	ENTAILMENT	synonym
+3577	The man is skillfully playing the guitar	The man is awkwardly playing a guitar	CONTRADICTION	near-antonym
+3617	Some fish are swimming quickly.	Some fish are swimming slowly	CONTRADICTION	antonym
+3626	Someone is dropping the meat into a pan	The meat is being thrown into a pan	ENTAILMENT	synonym
+3721	The person is slicing onions	Onions are being cut by the person	ENTAILMENT	synonym
+3721	The person is slicing onions	Onions are being split by the person	ENTAILMENT	synonym
+3790	A person is scrubbing a zucchini	The person is brushing a zucchini	ENTAILMENT	synonym
+3790	A person is scrubbing a zucchini	The person is dirtying a zucchini	ENTAILMENT	synonym
+3909	The man is singing and playing the guitar	The guitar is being performed by a man	ENTAILMENT	synonym
+3909	The man is singing and performing with a guitar	The guitar is being played by a man	ENTAILMENT	synonym
+4001	A man is recklessly climbing a rope	A man is ascending a rope	ENTAILMENT	synonym
+4001	A man is recklessly climbing a rope	A man is descending a rope	CONTRADICTION	antonym
+4001	A man is recklessly climbing a rope	A man is rashly climbing a rope	ENTAILMENT	synonym
+4001	A man is recklessly climbing a rope	A man is carelessly climbing a rope	CONTRADICTION	antonym
+4001	A man is recklessly climbing a rope	A man is cautiously climbing a rope	CONTRADICTION	antonym
+4505	The doctors are healing a man	The doctor is damaging the man	CONTRADICTION	antonym
+4505	The doctors are healing a man	The doctor is hurting the man	CONTRADICTION	antonym
+5349	A large flute is being played by a man	A man is playing a tiny flute	CONTRADICTION	antonym
+6315	A yellow dog is running on white snow on a very sunny day	A yellow dog is running on a rainy day	CONTRADICTION	antonym
+6315	A yellow dog is running on white snow on a very sunny day	A yellow dog is running on a cloudy day	CONTRADICTION	antonym
+6756	A large brown dog and a small grey dog are standing on a rocky surface.	A big brown dog and a small grey dog are moving	CONTRADICTION	antonym
+7093	The group of people is standing together and looking at the camera	A group of people is standing together and ignoring the camera	CONTRADICTION	antonym
+7466	The group of people is sitting in a dim room	The group of people is sitting in a room which is shiny	CONTRADICTION	antonym
+8471	A girl in a blue sweater is holding a multicolor toy and is sitting on the shoulders of an old man with grey hair	A girl in a blue sweater is releasing a multicolor toy	CONTRADICTION	antonym
+9359	A surfer is surfing a huge wave	A surfer is surfing a tiny wave	CONTRADICTION	antonym
+9571	An elder man is sitting on a bench and is wearing a gray jacket and black pants	A younger man is sitting on a bench	CONTRADICTION	antonym
+9713	A black and white dog is carrying a huge stick on the green grass	A dog is dropping a stick on the green grass	CONTRADICTION	antonym

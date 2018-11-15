@@ -1,4 +1,4 @@
-# Codebase of _Combining Axiom Injection and Knowledge Base Completion for Efficient_, AAAI 2019
+# Codebase of _"Combining Axiom Injection and Knowledge Base Completion for Efficient"_, AAAI 2019
 
 [paper](/tmp)
 
@@ -41,8 +41,13 @@ $ python server.py run --threshold 0.4 --daemon ../model_wordnet.config
 $ cd .. 
 # test.v: a theorem of "a man and a woman hike through a wooded area" => "a man and a woman walk through a wooded area"
 $ cat test.v | coqtop
-# Now it successfully solves the problem by injecting lexical axioms!
+# Now it successfully solves the RTE problem by injecting lexical axioms!
 ```
+
+#### Pretrained models
+
+- [model](http://cl.naist.jp/~masashi-y/resources/abduction/model_wordnet.config) trained on WordNet
+- [model](http://cl.naist.jp/~masashi-y/resources/abduction/model_wordnet_verbocean.config) trained on WordNet and VerbOcean
 
 ### Usage of `server.py`
 
@@ -53,25 +58,25 @@ usage: server.py run [-h] [--filename FILENAME] [--daemon]
                      model
 ```
 
-* `filename`: UNIX domain socket address used for the communication between Python and Coq. Defaults to `/tmp/py_server`.
-* `daemon`:  if set, the server is daemonized.
-* `threshold`: Only triplets whose scores ared larger than this value are adopted as axioms. We recommend setting this to `0.4`. 
+* `--filename`: UNIX domain socket address used for the communication between Python and Coq. The default value is `/tmp/py_server`.
+* `--daemon`:  if set, the server is daemonized.
+* `--threshold`: Only triplets whose scores ared larger than this value are adopted as axioms. We recommend setting this to `0.4`. 
 * `model`: path to model config file
 
 ### Usage of abduction tactic
 
 ```coq
-(* This must be done firstly *)
+(* This must be done to load abduction tactic *)
 Require Export Abduction.Abduction.
 
-(* Make connection to a Python server. *)
+(* Firstly make connection to a Python server. *)
 (* NeCheck can be set to disable if the connection is OK  *)
-Abduction Set Server [NoCheck] server_name.
+Abduction Set Server [NoCheck] "server_name".
 
 (* Show cached axioms generated so far. *)
 Abduction Show Cache.
 
-(* Debugging mode with higher verbosity *)
+(* Enable/Disable the debugging mode with the higher verbosity *)
 Abduction (Set|Reset) Debug.
 
 (* Show the connected server address *)
@@ -83,24 +88,32 @@ Goal forall x, _hike x -> _walk x.
 
 intros.
 (* 1 subgoal
- *   x : Event
- *   H : _hike x
- *   ============================
- *   _walk x    *)
+    x : Event
+    H : _hike x
+    ============================
+    _walk x    *)
 
 abduction.
 (* 1 subgoal
- *  x : Event
- *  H : _hike x
- *  NL_axiom1 : impl_fun1 Event _hike _walk
- *  ============================
- *  _walk x     *)  
+   x : Event
+   H : _hike x
+   NL_axiom1 : impl_fun1 Event _hike _walk
+   ============================
+   _walk x     *)
 ```
 
-#### Pretrained models
+### Using abduction tactic within [ccg2lambda](https://github.com/mynlp/ccg2lambda)
 
-- [model](http://cl.naist.jp/~masashi-y/resources/abduction/model_wordnet.config) trained on WordNet
-- [model](http://cl.naist.jp/~masashi-y/resources/abduction/model_wordnet_verbocean.config) trained on WordNet and VerbOcean
+ Please follow the installation steps of ccg2lambda except that Coq version 8.6 is required instead of 8.4.
+Then, place `ccg2lambda/coqlib.v` and `ccg2lambda/tacticts_coq.txt` from this repo to the root directory of ccg2lambda. When running `scripts/prove.py` of the RTE system, Be careful not to specify the `--abduction` flag so that it won't use both abduction mechanisms in this work and the one proposed in (Martínez-Gómez et al., 2017).
+
+* TODO: make Dockerfile for the experimental environment.
+
+### Datasets
+The datasets constructed in this work is available in `dataset` directory.
+- `wordnet/`: KBC dataset constructed from WordNet
+- `wordnet_verbocean/`: KBC dataset constructed from WordNet and VerbOcean
+- `lexsick.txt`: 58 LexSICK RTE problems
 
 ### Interactively work with ComplEx model
 
@@ -114,17 +127,22 @@ $ python predict.py run --model model.config
   ...
 ```
 
-### TODO?
-* https://sympa.inria.fr/sympa/arc/coq-club/2017-11/msg00029.html
-
-### Cite
+### Cite our work
 
 to do
 
 ### Acknowledgement
-
+In this work, we owe very much to the following repos:
 - [mana-ysh/knowledge-graph-embeddings](https://github.com/mana-ysh/knowledge-graph-embeddings)
 - [TimDettmers/ConvE](https://github.com/TimDettmers/ConvE)
 - [easonnie/ResEncoder](https://github.com/easonnie/ResEncoder)
 
-### Contact
+#### Licence
+MIT Licence
+
+#### Contact
+For questions and usage issues, please contact yoshikawa.masashi.yh8@is.naist.jp .
+
+#### TODO?
+* https://sympa.inria.fr/sympa/arc/coq-club/2017-11/msg00029.html
+
