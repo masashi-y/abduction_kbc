@@ -87,25 +87,27 @@ Parameter _walk : Event -> Prop.
 Goal forall x, _hike x -> _walk x.
 
 intros.
-(* 1 subgoal
+(* 1 subgoal            :worried:
     x : Event
     H : _hike x
     ============================
     _walk x    *)
 
 abduction.
-(* 1 subgoal
+(* 1 subgoal            :open_mouth:
    x : Event
    H : _hike x
    NL_axiom1 : impl_fun1 Event _hike _walk
    ============================
    _walk x     *)
+
+apply NL_axiom1. apply H. Qed.
+(* No more subgoals :+1:    *)
 ```
 
-### Using abduction tactic within [ccg2lambda](https://github.com/mynlp/ccg2lambda)
+### Using abduction tactic from within [ccg2lambda](https://github.com/mynlp/ccg2lambda)
 
- Please follow the installation steps of ccg2lambda except that Coq version 8.6 is required instead of 8.4.
-Then, place `ccg2lambda/coqlib.v` and `ccg2lambda/tacticts_coq.txt` from this repo to the root directory of ccg2lambda. When running `scripts/prove.py` of the RTE system, Be careful not to specify the `--abduction` flag so that it won't use both abduction mechanisms in this work and the one proposed in (Martínez-Gómez et al., 2017).
+ Please follow the installation steps of ccg2lambda except that Coq version 8.6 is required instead of 8.4.  Then, place `ccg2lambda/coqlib.v` and `ccg2lambda/tacticts_coq.txt` from this repo to the root directory of ccg2lambda. When running `scripts/prove.py` of the RTE system, Be careful not to specify the `--abduction` flag so that it won't use both abduction mechanisms in this work and the one proposed in (Martínez-Gómez et al., 2017).
 
 * TODO: make Dockerfile for the experimental environment.
 
@@ -143,6 +145,6 @@ MIT Licence
 #### Contact
 For questions and usage issues, please contact yoshikawa.masashi.yh8@is.naist.jp .
 
-#### TODO?
+##### TODO?
 * https://sympa.inria.fr/sympa/arc/coq-club/2017-11/msg00029.html
 
