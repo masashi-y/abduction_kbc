@@ -16,6 +16,7 @@
 
 import re
 
+
 def normalize_token(token):
     """
     Convert symbols to avoid collisions with reserved punctuation
@@ -34,6 +35,7 @@ def normalize_token(token):
     if not normalized.startswith('_'):
         normalized = '_' + normalized
     return normalized
+
 
 def denormalize_token(token):
     """

@@ -22,7 +22,6 @@ logging.basicConfig(level=logging.INFO)
 
 
 class BaseModel(object):
-
     def binary_cross_entropy(self, probs, Y):
         """
         Input:
@@ -167,7 +166,7 @@ class ConvE(chainer.Chain, BaseModel):
 
         with self.init_scope():
             self.emb_e = L.EmbedID(
-                    num_entities, self.embedding_dim, initialW=I.GlorotNormal())
+                    num_entities, self.embedding_dim, socketinitialW=I.GlorotNormal())
             self.emb_rel = L.EmbedID(
                     num_relations, self.embedding_dim, initialW=I.GlorotNormal())
             self.conv1 = L.Convolution2D(1, 32, 3, stride=1, pad=0)
@@ -363,8 +362,8 @@ class FastEvalTripletDataset(chainer.dataset.DatasetMixin):
             if id_rel not in trans:
                 self.deepgraph[id_e1, id_rel] = self.graph[id_e1, id_rel]
                 continue
-
             res = []
+
             def traverse(e1, rel, depth):
                 res.append(e1)
                 if depth <= 0: return
@@ -391,16 +390,16 @@ class FastEvalTripletDataset(chainer.dataset.DatasetMixin):
 
 def convert(batch, device):
     e1, rel, e2, Y, flt = zip(*batch)
-    e1  = np.concatenate(e1)
+    e1 = np.concatenate(e1)
     rel = np.concatenate(rel)
-    e2  = np.concatenate(e2)
-    Y   = np.concatenate(Y)
+    e2 = np.concatenate(e2)
+    Y = np.concatenate(Y)
     flt = np.vstack(flt) if flt[0] is not None else None
     if device >= 0:
-        e1  = cuda.to_gpu(e1)
+        e1 = cuda.to_gpu(e1)
         rel = cuda.to_gpu(rel)
-        e2  = cuda.to_gpu(e2)
-        Y   = cuda.to_gpu(Y)
+        e2 = cuda.to_gpu(e2)
+        Y = cuda.to_gpu(Y)
         if flt is not None:
             flt = cuda.to_gpu(flt)
     return e1, rel, e2, Y, flt
@@ -413,20 +412,13 @@ def main():
     parser.add_argument('ent_vocab', help='Path to entity vocab')
     parser.add_argument('rel_vocab', help='Path to relation vocab')
     parser.add_argument('--model', default='conve', choices=['complex', 'conve'])
-    parser.add_argument('--gpu', '-g', default=-1, type=int,
-                        help='GPU ID (negative value indicates CPU)')
-    parser.add_argument('--batchsize', '-b', type=int, default=1000,
-                        help='learning minibatch size')
-    parser.add_argument('--epoch', '-e', default=20, type=int,
-                        help='number of epochs to learn')
-    parser.add_argument('--negative-size', default=10, type=int,
-                        help='number of negative samples')
-    parser.add_argument('--out', default='result',
-                        help='Directory to output the result')
-    parser.add_argument('--val-iter', type=int, default=1000,
-                        help='validation iteration')
-    parser.add_argument('--init-model', default=None,
-                        help='initialize model with saved one')
+    parser.add_argument('--gpu', '-g', default=-1, type=int, help='GPU ID (negative value indicates CPU)')
+    parser.add_argument('--batchsize', '-b', type=int, default=1000, help='learning minibatch size')
+    parser.add_argument('--epoch', '-e', default=20, type=int, help='number of epochs to learn')
+    parser.add_argument('--negative-size', default=10, type=int, help='number of negative samples')
+    parser.add_argument('--out', default='result', help='Directory to output the result')
+    parser.add_argument('--val-iter', type=int, default=1000, help='validation iteration')
+    parser.add_argument('--init-model', default=None, help='initialize model with saved one')
     args = parser.parse_args()
 
     if not os.path.exists(args.out):
@@ -472,7 +464,7 @@ def main():
     if args.gpu >= 0:
         model.to_gpu()
 
-    optimizer = O.Adam() # (alpha=0.003)
+    optimizer = O.Adam()
     optimizer.setup(model)
 
     train_iter = chainer.iterators.SerialIterator(train, args.batchsize)
