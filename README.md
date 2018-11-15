@@ -87,14 +87,14 @@ Parameter _walk : Event -> Prop.
 Goal forall x, _hike x -> _walk x.
 
 intros.
-(* 1 subgoal            :worried:
+(* 1 subgoal
     x : Event
     H : _hike x
     ============================
     _walk x    *)
 
 abduction.
-(* 1 subgoal            :open_mouth:
+(* 1 subgoal
    x : Event
    H : _hike x
    NL_axiom1 : impl_fun1 Event _hike _walk
@@ -102,7 +102,7 @@ abduction.
    _walk x     *)
 
 apply NL_axiom1. apply H. Qed.
-(* No more subgoals :+1:    *)
+(* No more subgoals    *)
 ```
 
 ### Using abduction tactic from within [ccg2lambda](https://github.com/mynlp/ccg2lambda)
