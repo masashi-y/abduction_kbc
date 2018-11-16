@@ -2,7 +2,8 @@
 
 [paper](https://arxiv.org/abs/1811.06203)
 
-Requirements
+### Requirements
+
 * Coq 8.6 (Sadly, the program must be compiled from the source! No opam, apt or homebrew ...)
 * Python 3
 
@@ -16,6 +17,7 @@ Ubuntu and macOS Sierra with
 * ocamlfind: 1.7.3
 
 ### Build
+
 ```sh
 $ coq_makefile -f _CoqProject -o Makefile
 $ make
@@ -44,7 +46,7 @@ $ cat test.v | coqtop
 # Now it successfully solves the RTE problem by injecting lexical axioms!
 ```
 
-#### Pretrained models
+### Pretrained models
 
 - [model](http://cl.naist.jp/~masashi-y/resources/abduction/model_wordnet.config) trained on WordNet
 - [model](http://cl.naist.jp/~masashi-y/resources/abduction/model_wordnet_verbocean.config) trained on WordNet and VerbOcean
@@ -60,7 +62,7 @@ usage: server.py run [-h] [--filename FILENAME] [--daemon]
 
 * `--filename`: UNIX domain socket address used for the communication between Python and Coq. The default value is `/tmp/py_server`.
 * `--daemon`:  if set, the server is daemonized.
-* `--threshold`: Only triplets whose scores ared larger than this value are adopted as axioms. We recommend setting this to `0.4`. 
+* `--threshold`: Only triplets whose scores are larger than this value are adopted as axioms. We recommend setting this to `0.4`. 
 * `model`: path to model config file
 
 ### Usage of abduction tactic
@@ -115,7 +117,7 @@ Qed.
 
 ### Using abduction tactic from within [ccg2lambda](https://github.com/mynlp/ccg2lambda)
 
- Please follow the installation steps of ccg2lambda except that Coq version 8.6 is required instead of 8.4.  Then, place `ccg2lambda/coqlib.v` and `ccg2lambda/tacticts_coq.txt` from this repo to the root directory of ccg2lambda. When running `scripts/prove.py` of the RTE system, Be careful not to specify the `--abduction` flag so that it won't use both abduction mechanisms in this work and the one proposed in (Martínez-Gómez et al., 2017).
+Please follow the installation steps of ccg2lambda except that Coq version 8.6 is required instead of 8.4. Then, place `ccg2lambda/coqlib.v` and `ccg2lambda/tacticts_coq.txt` from this repo to the root directory of ccg2lambda. When running `scripts/prove.py` of the RTE system, Be careful not to specify the `--abduction` flag so that it won't use both abduction mechanisms in this work and the one proposed in (Martínez-Gómez et al., 2017).
 
 * TODO: make Dockerfile for the experimental environment.
 
