@@ -1,6 +1,6 @@
-# Codebase of _"Combining Axiom Injection and Knowledge Base Completion for Efficient"_, AAAI 2019
+# Codebase of _"Combining Axiom Injection and Knowledge Base Completion for Efficient Natural Language Inference"_, AAAI 2019
 
-[paper](/tmp)
+[paper](https://arxiv.org/abs/1811.06203)
 
 Requirements
 * Coq 8.6 (Sadly, the program must be compiled from the source! No opam, apt or homebrew ...)
@@ -26,8 +26,8 @@ $ pip install protobuf
 Then add these lines to $HOME/.coqrc:
 
 ```
-Add Rec LoadPath "/path/to/abductionKB/theories/" as Abduction.
-Add ML Path "/path/to/abductionKB/src".
+Add Rec LoadPath "/path/to/abduction_kbc/theories/" as Abduction.
+Add ML Path "/path/to/abduction_kbc/src".
 ```
 
 ### Check if the build is successful
@@ -87,22 +87,29 @@ Parameter _walk : Event -> Prop.
 Goal forall x, _hike x -> _walk x.
 
 intros.
-(* 1 subgoal
+(*
+   1 subgoal
     x : Event
     H : _hike x
     ============================
-    _walk x    *)
+    _walk x
+*)
 
 abduction.
-(* 1 subgoal
-   x : Event
-   H : _hike x
-   NL_axiom1 : impl_fun1 Event _hike _walk
-   ============================
-   _walk x     *)
+cbv in NL_axiom1.
+(*
+   1 subgoal
+    x : Event
+    H : _hike x
+    NL_axiom1 : forall x : Event, _hike x ->  _walk x.
+    ============================
+    _walk x
+*)
 
-apply NL_axiom1. apply H. Qed.
-(* No more subgoals    *)
+apply NL_axiom1.
+apply H.
+Qed.
+(* No more subgoals *)
 ```
 
 ### Using abduction tactic from within [ccg2lambda](https://github.com/mynlp/ccg2lambda)
