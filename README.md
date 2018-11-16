@@ -66,8 +66,9 @@ usage: server.py run [-h] [--filename FILENAME] [--daemon]
 ### Usage of abduction tactic
 
 ```coq
-(* This must be done to load abduction tactic *)
-Require Export Abduction.Abduction.
+(* This must be done to load abduction tactic and other *)
+(* definitions related to natural language inference.   *)
+Require Import coqlib.
 
 (* Firstly make connection to a Python server. *)
 (* NeCheck can be set to disable if the connection is OK  *)
