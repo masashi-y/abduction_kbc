@@ -48,8 +48,8 @@ $ cat test.v | coqtop
 
 ### Pretrained models
 
-- [model](http://cl.naist.jp/~masashi-y/resources/abduction/model_wordnet.config) trained on WordNet
-- [model](http://cl.naist.jp/~masashi-y/resources/abduction/model_wordnet_verbocean.config) trained on WordNet and VerbOcean
+- [model](https://drive.google.com/file/d/1C1Y6BiXVBkuwZBmA0MQgf-4NMyNX9W37/view?usp=sharing) trained on WordNet
+- [model](https://drive.google.com/file/d/1rHxn8peagBkLMTYYeH_tzqcuRxFycg7w/view?usp=sharing) trained on WordNet and VerbOcean
 
 ### Usage of `server.py`
 
